@@ -1,0 +1,55 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+            http://www.liquibase.org/xml/ns/pro
+            http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="create_movie_cast_table" author="Isabelle Plante">
+        <createTable tableName="movie_cast">
+            <column name="id" type="java.sql.Types.BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="movie_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" references="movie(id)" foreignKeyName="fk_movie_cast_movie_id"/>
+            </column>
+            <column name="cast_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" references="role(id)" foreignKeyName="fk_movie_cast_role_id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_movie_genre_table" author="Isabelle Plante">
+        <createTable tableName="movie_genre">
+            <column name="id" type="java.sql.Types.BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="movie_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" references="movie(id)" foreignKeyName="fk_movie_genre_movie_id"/>
+            </column>
+            <column name="genre_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" references="genre(id)" foreignKeyName="fk_movie_genre_genre_id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_movie_studio_table" author="Isabelle Plante">
+        <createTable tableName="movie_studio">
+            <column name="id" type="java.sql.Types.BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="movie_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" references="movie(id)" foreignKeyName="fk_movie_studio_movie_id"/>
+            </column>
+            <column name="studio_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" references="studio(id)" foreignKeyName="fk_movie_studio_studio_id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
