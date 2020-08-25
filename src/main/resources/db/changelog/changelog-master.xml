@@ -7,4 +7,5 @@
             http://www.liquibase.org/xml/ns/dbchangelog-ext
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <include file="/db/changelog/001-create_movie_table-changelog.xml"/>
+    <include file="/db/changelog/002-create_association_tables-changelog.xml"/>
 </databaseChangeLog>
