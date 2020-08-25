@@ -18,8 +18,8 @@
             <column name="cast_id" type="java.sql.Types.BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="role" type="java.sql.Types.BIGINT">
-                <constraints nullable="false" references="role(id)" foreignKeyName="fk_movie_cast_role_id"/>
+            <column name="role" type="java.sql.Types.VARCHAR(30)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -32,8 +32,8 @@
             <column name="movie_id" type="java.sql.Types.BIGINT">
                 <constraints nullable="false" references="movie(id)" foreignKeyName="fk_movie_genre_movie_id"/>
             </column>
-            <column name="genre_id" type="java.sql.Types.BIGINT">
-                <constraints nullable="false" references="genre(id)" foreignKeyName="fk_movie_genre_genre_id"/>
+            <column name="genre" type="java.sql.Types.VARCHAR(30)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -46,8 +46,8 @@
             <column name="movie_id" type="java.sql.Types.BIGINT">
                 <constraints nullable="false" references="movie(id)" foreignKeyName="fk_movie_studio_movie_id"/>
             </column>
-            <column name="studio_id" type="java.sql.Types.BIGINT">
-                <constraints nullable="false" references="studio(id)" foreignKeyName="fk_movie_studio_studio_id"/>
+            <column name="studio" type="java.sql.Types.VARCHAR(30)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
