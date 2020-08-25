@@ -4,5 +4,7 @@ spring:
     url: jdbc:mysql://movies-db:3306/movies
     username: movies
     password: fEvfvJz8mKfjkV943JTA
+  jpa:
+    open-in-view: false
   liquibase:
     change-log: classpath:/db/changelog/changelog-master.xml
