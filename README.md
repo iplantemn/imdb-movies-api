@@ -10,7 +10,7 @@ Movies API for the IMDB SmartThings project
 
 ## Deploying to Docker
 
-At the command-line, navigate to the root of the project and run one of these commands:
+Once you've built the application, navigate to the root of the project and run one of these commands:
 ```shell script
 docker-compose up --build # build image & launch a containers for database and service
 docker-compose up movies-db --build # build image & launch container for database only
