@@ -1,15 +1,21 @@
 package com.iplante.imdb.movies.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Entity representing a movie.
@@ -21,6 +27,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
     @Id
@@ -36,18 +43,13 @@ public class Movie {
 
     private String title;
 
-    /**
-     * Constructs a Movie entity.
-     *
-     * @param title the movie title.
-     * @param releaseDate the movie's release date.
-     * @param lengthMinutes the length of the movie in minutes.
-     * @param synopsis a short synopsis of the movie's plot.
-     */
-    public Movie(String title, Date releaseDate, int lengthMinutes, String synopsis) {
-        this.lengthMinutes = lengthMinutes;
-        this.releaseDate = releaseDate;
-        this.synopsis = synopsis;
-        this.title = title;
-    }
+    @ElementCollection
+    @CollectionTable(name = "movie_genre", joinColumns = @JoinColumn(name = "movie_id"))
+    @Column(name = "genre")
+    private List<String> genres;
+
+    @ElementCollection
+    @CollectionTable(name = "movie_studio", joinColumns = @JoinColumn(name = "movie_id"))
+    @Column(name = "studio")
+    private List<String> studios;
 }
