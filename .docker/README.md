@@ -1,3 +1,0 @@
-# Movies API Docker
-
-tbd
