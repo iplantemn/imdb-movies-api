@@ -1,0 +1,21 @@
+version: '2.2'
+services:
+  movies-api:
+    build: ""
+    environment:
+      - server_contextPath=/movies
+    depends_on:
+      - movies-db
+    ports:
+      - "5012:8080"
+    expose:
+      - "5012"
+  movies-db:
+    build: ./.docker/movies-db
+    command: ['mysqld']
+    environment:
+      - MYSQL_ROOT_PASSWORD=NBLNKpr7FYbdRgkXmmP8
+    ports:
+      - "3308:3306"
+    expose:
+      - "3308"

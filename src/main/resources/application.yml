@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3308/movies
+#    url: jdbc:mysql://localhost:3308/movies
+    url: jdbc:mysql://movies-db:3306/movies
     username: movies
     password: fEvfvJz8mKfjkV943JTA
   liquibase:
