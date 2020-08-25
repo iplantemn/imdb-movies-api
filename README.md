@@ -34,5 +34,5 @@ docker-compose up movies-db --build # build image & launch container for databas
 1. Integration tests
 1. Implement linter
 1. Jacoco coverage
-1. Use Lombok for entity
+1. ~~Use Lombok for entity~~
 1. ArchUnit tests
