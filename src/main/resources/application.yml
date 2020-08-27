@@ -1,4 +1,7 @@
 spring:
+  data:
+    rest:
+      base-path: api/v1
   datasource:
 #    url: jdbc:mysql://localhost:3308/movies
     url: jdbc:mysql://movies-db:3306/movies

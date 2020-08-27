@@ -1,7 +1,9 @@
 package com.iplante.imdb.movies.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,6 +31,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,4 +55,10 @@ public class Movie {
     @CollectionTable(name = "movie_studio", joinColumns = @JoinColumn(name = "movie_id"))
     @Column(name = "studio")
     private List<String> studios;
+
+    @ElementCollection
+    @CollectionTable(name = "movie_cast", joinColumns = @JoinColumn(name = "movie_id"))
+    @Column(name = "cast_id")
+    @JsonIgnore
+    private List<Long> cast;
 }
