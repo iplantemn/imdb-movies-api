@@ -3,7 +3,6 @@ spring:
     rest:
       base-path: api/v1
   datasource:
-#    url: jdbc:mysql://localhost:3308/movies
     url: jdbc:mysql://movies-db:3306/movies
     username: movies
     password: fEvfvJz8mKfjkV943JTA
@@ -11,3 +10,10 @@ spring:
     open-in-view: false
   liquibase:
     change-log: classpath:/db/changelog/changelog-master.xml
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3308/movies
