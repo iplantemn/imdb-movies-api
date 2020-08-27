@@ -91,8 +91,8 @@ public class DatabaseSeeder {
                 .lengthMinutes(RandomUtil.generateRandomInt(60, 240))
                 .releaseDate(RandomUtil.generateRandomDate(1930, 2020)) // todo fix
                 .genres(Arrays.asList(
-                        GENRES.get(RandomUtil.generateRandomInt(0, GENRES.size())),
-                        GENRES.get(RandomUtil.generateRandomInt(0, GENRES.size()))
+                        GENRES.get(RandomUtil.generateRandomInt(0, GENRES.size() - 1)),
+                        GENRES.get(RandomUtil.generateRandomInt(0, GENRES.size() - 1))
                 ))
                 .studios(Arrays.asList(
                         STUDIOS.get(RandomUtil.generateRandomInt(0, STUDIOS.size())),
