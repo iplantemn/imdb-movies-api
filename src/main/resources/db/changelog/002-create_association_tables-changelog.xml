@@ -18,9 +18,6 @@
             <column name="cast_id" type="java.sql.Types.BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="role" type="java.sql.Types.VARCHAR(30)">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
     </changeSet>
 
