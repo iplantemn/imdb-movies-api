@@ -95,8 +95,8 @@ public class DatabaseSeeder {
                         GENRES.get(RandomUtil.generateRandomInt(0, GENRES.size() - 1))
                 ))
                 .studios(Arrays.asList(
-                        STUDIOS.get(RandomUtil.generateRandomInt(0, STUDIOS.size())),
-                        STUDIOS.get(RandomUtil.generateRandomInt(0, STUDIOS.size()))
+                        STUDIOS.get(RandomUtil.generateRandomInt(0, STUDIOS.size() - 1)),
+                        STUDIOS.get(RandomUtil.generateRandomInt(0, STUDIOS.size() - 1))
                 ))
                 // Expecting that 2000 cast have een generated in the cast database.
                 .cast(RandomUtil.generateRandomListOfLongs(10, 30, 1, 2000))
