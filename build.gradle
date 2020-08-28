@@ -37,9 +37,11 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'com.h2database:h2'
+	testImplementation 'org.mockito:mockito-core:2.21.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:2.21.0'
 }
 
-pmdMain {
+pmd {
 	ruleSetFiles = files("pmd-ruleset.xml")
 	ruleSets = []
 }
