@@ -41,6 +41,41 @@ dependencies {
 	testImplementation 'org.mockito:mockito-junit-jupiter:2.21.0'
 }
 
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				counter = 'BRANCH'
+				minimum = 0.50
+			}
+		}
+		rule {
+			limit {
+				counter = 'CLASS'
+				minimum = 1.00
+			}
+		}
+		rule {
+			limit {
+				counter = 'INSTRUCTION'
+				minimum = 0.85
+			}
+		}
+		rule {
+			limit {
+				counter = 'LINE'
+				minimum = 0.84
+			}
+		}
+		rule {
+			limit {
+				counter = 'METHOD'
+				minimum = 0.91
+			}
+		}
+	}
+}
+
 pmd {
 	ruleSetFiles = files("pmd-ruleset.xml")
 	ruleSets = []
@@ -50,4 +85,4 @@ test {
 	useJUnitPlatform()
 }
 
-test.finalizedBy jacocoTestReport
+test.finalizedBy jacocoTestReport, jacocoTestCoverageVerification
