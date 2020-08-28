@@ -52,14 +52,14 @@
 		{
 			"name": "GET /movies/search/cast",
 			"request": {
-				"url": "http://localhost:5012/api/v1/movies/search/cast?castId=1",
+				"url": "http://localhost:5013/api/v1/movies/search/castId?castId={{castId}}",
 				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "formdata",
 					"formdata": []
 				},
-				"description": "Replace {{castID}} with an actual ID"
+				"description": "Replace {{castId}} with an actual ID"
 			},
 			"response": []
 		},
