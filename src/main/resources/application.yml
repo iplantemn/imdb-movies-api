@@ -1,3 +1,10 @@
+cast-api:
+  base-url: http://cast-api:8080/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, mappings
 spring:
   data:
     rest:
@@ -13,6 +20,8 @@ spring:
 
 ---
 
+cast-api:
+  base-url: http://localhost:5013
 spring:
   profiles: local
   datasource:
