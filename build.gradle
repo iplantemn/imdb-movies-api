@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.3.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'pmd'
+	id 'jacoco'
 }
 
 group = 'com.iplante.imdb'
@@ -37,6 +39,13 @@ dependencies {
 	testImplementation 'com.h2database:h2'
 }
 
+pmdMain {
+	ruleSetFiles = files("pmd-ruleset.xml")
+	ruleSets = []
+}
+
 test {
 	useJUnitPlatform()
 }
+
+test.finalizedBy jacocoTestReport
