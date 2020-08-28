@@ -46,7 +46,7 @@ jacocoTestCoverageVerification {
 		rule {
 			limit {
 				counter = 'BRANCH'
-				minimum = 0.50
+				minimum = 1.00
 			}
 		}
 		rule {
@@ -58,19 +58,19 @@ jacocoTestCoverageVerification {
 		rule {
 			limit {
 				counter = 'INSTRUCTION'
-				minimum = 0.85
+				minimum = 0.99
 			}
 		}
 		rule {
 			limit {
 				counter = 'LINE'
-				minimum = 0.84
+				minimum = 0.98
 			}
 		}
 		rule {
 			limit {
 				counter = 'METHOD'
-				minimum = 0.91
+				minimum = 0.98
 			}
 		}
 	}
