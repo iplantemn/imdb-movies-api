@@ -89,7 +89,7 @@ public class DatabaseSeeder {
                 .builder()
                 .title(RandomUtil.generateRandomWords(1, 4, 2, 8))
                 .lengthMinutes(RandomUtil.generateRandomInt(60, 240))
-                .releaseDate(RandomUtil.generateRandomDate(1930, 2020)) // todo fix
+                .releaseDate(RandomUtil.generateRandomDate(1930, 2020))
                 .genres(Arrays.asList(
                         GENRES.get(RandomUtil.generateRandomInt(0, GENRES.size() - 1)),
                         GENRES.get(RandomUtil.generateRandomInt(0, GENRES.size() - 1))
