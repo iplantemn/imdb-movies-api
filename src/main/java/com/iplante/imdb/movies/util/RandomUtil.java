@@ -2,10 +2,13 @@ package com.iplante.imdb.movies.util;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -28,13 +31,23 @@ public class RandomUtil {
      * @param minYear the minimum year for the date.
      * @param maxYear the maximum year for the date.
      * @return a random Date between the boundaries.
+     * @see <a href=https://www.baeldung.com/java-random-dates>Baeldung</a>
      */
     public static Date generateRandomDate(int minYear, int maxYear) {
-        final var minEpoch = (int) LocalDate.of(minYear, 1, 1).toEpochDay();
-        final var maxEpoch = (int) LocalDate.of(maxYear, 1, 1).toEpochDay();
-        final var randomEpoch = minEpoch + new Random().nextInt(maxEpoch - minEpoch);
+        final var startSeconds = LocalDate.of(minYear, 1, 1)
+                .atStartOfDay(ZoneId.systemDefault())
+                .toInstant()
+                .getEpochSecond();
+        final var endSeconds = LocalDate.of(maxYear, 1, 1)
+                .atStartOfDay(ZoneId.systemDefault())
+                .toInstant()
+                .getEpochSecond();
 
-        return new Date(randomEpoch);
+        long random = ThreadLocalRandom
+                .current()
+                .nextLong(startSeconds, endSeconds);
+
+        return Date.from(Instant.ofEpochSecond(random));
     }
 
     /**
