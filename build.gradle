@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.3.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'pmd'
+	id 'jacoco'
 }
 
 group = 'com.iplante.imdb'
@@ -35,8 +37,52 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'com.h2database:h2'
+	testImplementation 'org.mockito:mockito-core:2.21.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:2.21.0'
+}
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				counter = 'BRANCH'
+				minimum = 1.00
+			}
+		}
+		rule {
+			limit {
+				counter = 'CLASS'
+				minimum = 1.00
+			}
+		}
+		rule {
+			limit {
+				counter = 'INSTRUCTION'
+				minimum = 0.99
+			}
+		}
+		rule {
+			limit {
+				counter = 'LINE'
+				minimum = 0.98
+			}
+		}
+		rule {
+			limit {
+				counter = 'METHOD'
+				minimum = 0.98
+			}
+		}
+	}
+}
+
+pmd {
+	ruleSetFiles = files("pmd-ruleset.xml")
+	ruleSets = []
 }
 
 test {
 	useJUnitPlatform()
 }
+
+test.finalizedBy jacocoTestReport, jacocoTestCoverageVerification
