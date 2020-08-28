@@ -52,7 +52,7 @@
 		{
 			"name": "GET /movies/search/cast",
 			"request": {
-				"url": "http://localhost:5013/api/v1/movies/search/castId?castId={{castId}}",
+				"url": "http://localhost:5012/api/v1/movies/search/castId?castId={{castId}}",
 				"method": "GET",
 				"header": [],
 				"body": {
