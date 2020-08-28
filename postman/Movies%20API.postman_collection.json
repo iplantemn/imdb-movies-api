@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Movies API",
+		"_postman_id": "3ba62dc1-2ca5-5012-75be-3b5dc4d29831",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /movies",
+			"request": {
+				"url": "http://localhost:5012/api/v1/movies?size=20&page=0&sort=title=desc",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /movies by ID",
+			"request": {
+				"url": "http://localhost:5012/api/v1/movies/{{movieId}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Replace {{movieId}} with an actual ID"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /movies/ID/cast",
+			"request": {
+				"url": "http://localhost:5012/api/v1/movies/{{movieId}}/cast?size=20&page=0&sort=title=desc",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Replace {{movieId}} with an actual ID"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /movies/search/cast",
+			"request": {
+				"url": "http://localhost:5013/api/v1/movies/search/castId?castId={{castId}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Replace {{castId}} with an actual ID"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /movies",
+			"request": {
+				"url": "http://localhost:5012/api/v1/movies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"The Hitchhiker's Guide to the Galaxy\",\n\t\"lengthMinutes\": 109,\n\t\"releaseDate\": \"2005-04-29\",\n\t\"genres\": [\"Adventure\", \"Comedy\", \"Sci Fi\"],\n\t\"studios\": [\"Touchstone Pictures\", \"Spyglass Entertainment\"],\n\t\"synopsis\": \"Mere seconds before the Earth is to be demolished by an alien construction crew, journeyman Arthur Dent is swept off the planet by his friend Ford Prefect, a researcher penning a new edition of The Hitchhiker's Guide to the Galaxy.\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /movies by ID",
+			"request": {
+				"url": "http://localhost:5012/api/v1/movies/{{movieId}}",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"synopsis\": \"42\"\n}"
+				},
+				"description": "Replace {{movieId}} with an actual ID"
+			},
+			"response": []
+		}
+	]
+}

@@ -10,12 +10,19 @@ services:
       - "5012:8080"
     expose:
       - "5012"
+    networks:
+      - imdb
   movies-db:
     build: ./.docker/movies-db
-    command: ['mysqld']
+    command: [ 'mysqld' ]
     environment:
       - MYSQL_ROOT_PASSWORD=NBLNKpr7FYbdRgkXmmP8
     ports:
       - "3308:3306"
     expose:
       - "3308"
+    networks:
+      - imdb
+networks:
+  imdb:
+    external: true
